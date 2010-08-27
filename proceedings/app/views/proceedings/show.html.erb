@@ -1,0 +1,55 @@
+﻿
+
+<p>
+  <b>Nosaukums:</b>
+  <%=h @proceeding.title %>
+</p>
+
+<p>
+  <b>Autori:</b>
+  <%=h @proceeding.authors %>
+</p>
+
+<p>
+  <b>Gads:</b>
+  <%=h @proceeding.year %>
+</p>
+
+<p>
+  <b>Tips:</b>
+  <%=h @proceeding.type %>
+</p>
+
+<p>
+  <b>Žurnāls:</b>
+  <%=h @proceeding.journal_name %>
+</p>
+
+<p>
+  <b>Žurnāla īsais nosaukums:</b>
+  <%=h @proceeding.journal_short_name %>
+</p>
+
+<p>
+  <b>Numurs:</b>
+  <%=h @proceeding.issue %>
+</p>
+
+<p>
+  <b>Sējums:</b>
+  <%=h @proceeding.volume %>
+</p>
+
+<p>
+  <b>Izmantotās lappuses:</b>
+  <%=h @proceeding.used_pages %>
+</p>
+
+<p>
+  <b>Atslēgvārdi:</b>
+  <%=h @proceeding.keywords %>
+</p>
+
+
+<%= link_to 'Labot', edit_proceeding_path(@proceeding) %> |
+<%= link_to 'Atgriezties', proceedings_path %>

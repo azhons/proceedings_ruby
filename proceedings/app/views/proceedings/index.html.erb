@@ -1,0 +1,41 @@
+﻿<h1>Raksti</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nosaukums</th>
+      <th>Autori</th>
+      <th>Gads</th>
+      <th>Tips</th>
+      <th>Žurnāls</th>
+      <th>Žurnāla īsais nosakums</th>
+      <th>Numurs</th>
+      <th>Sējums</th>
+      <th>Izmantotās lappuses</th>
+      <th>Atslēgvārdi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @proceedings.each do |proceeding| %>
+      <tr>
+        <td><%=h proceeding.title %></td>
+        <td><%=h proceeding.authors %></td>
+        <td><%=h proceeding.year %></td>
+        <td><%=h proceeding.type %></td>
+        <td><%=h proceeding.journal_name %></td>
+        <td><%=h proceeding.journal_short_name %></td>
+        <td><%=h proceeding.issue %></td>
+        <td><%=h proceeding.volume %></td>
+        <td><%=h proceeding.used_pages %></td>
+        <td><%=h proceeding.keywords %></td>
+        <td><%= link_to 'Skatīt', proceeding %></td>
+        <td><%= link_to 'Labot', edit_proceeding_path(proceeding) %></td>
+        <td><%= link_to 'Dzēst', proceeding, :confirm => 'Vai tiešām dzēst?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Jauns raksts', new_proceeding_path %>

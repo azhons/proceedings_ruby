@@ -1,0 +1,3121 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (141.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (234.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProceedings (20100827091843)
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE `proceedings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `authors` varchar(255), `year` varchar(255), `type` varchar(255), `journal_name` varchar(255), `journal_short_name` varchar(255), `issue` varchar(255), `volume` varchar(255), `used_pages` varchar(255), `keywords` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100827091843')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `proceedings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `proceedings`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 12:30:45) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+Completed in 266ms (View: 250, DB: 15) | 200 OK [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 12:30:50) [GET]
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Completed in 234ms (View: 203, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#create (for 127.0.0.1 at 2010-08-27 12:30:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mProceeding Create (0.0ms)[0m   [0;1mINSERT INTO `proceedings` (`journal_short_name`, `journal_name`, `updated_at`, `title`, `type`, `used_pages`, `year`, `issue`, `authors`, `volume`, `keywords`, `created_at`) VALUES('', '', '2010-08-27 09:30:56', 'test', NULL, '', '', '', 'kllk', '', '', '2010-08-27 09:30:56')[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/1
+Completed in 110ms (DB: 63) | 302 Found [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 12:30:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 12:30:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 12:31:01) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 12:57:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 12:57:34) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 12:57:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (15.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 63ms (View: 32, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 12:57:38) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:00:53) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:01:32) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:01:39) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 203ms (View: 187, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:01:51) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 125ms (View: 93, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 13:01:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:02:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 203ms (View: 172, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:02:32) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 13:02:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 13:03:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-08-27 13:04:55) [GET]
+  Parameters: {"id"=>"1"}
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:83: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-08-27 13:05:20) [GET]
+  Parameters: {"id"=>"1"}
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:83: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-08-27 13:05:54) [GET]
+  Parameters: {"id"=>"1"}
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:83: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (266.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:05:57) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:83: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:06:39) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:83: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:07:04) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 203ms (View: 172, DB: 16) | 200 OK [http://localhost/proceedings/]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:10) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:84: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (235.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:24) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:35) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:39) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:41) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (360.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:41) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (63.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:41) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:42) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\376' in expression
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:1: Invalid char `\377' in expression):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:07:45) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings/]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:07:52) [GET]
+
+NameError (undefined local variable or method `﻿' for main:Object):
+  app/controllers/proceedings_controller.rb:1
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:08:02) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:85: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:08:11) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:85: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:08:16) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:84: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (219.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-27 13:08:21) [GET]
+
+SyntaxError (D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:84: syntax error, unexpected kEND, expecting $end):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 13:09:55) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/]
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 13:10:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 78ms (View: 31, DB: 46) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 13:10:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 62ms (View: 46, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:13:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:19:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 313ms (View: 281, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:21:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 406ms (View: 375, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:23:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+ERROR: compiling _run_erb_app47views47proceedings47edit46html46erb RAISED compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ':', expecting kEND
+ form_for(@proceeding) :id => "ff" do |f| ; @output_buffer.concat "\n"
+                        ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+ form_for(@proceeding) :id => "ff" do |f| ; @output_buffer.concat "\n"
+                                     ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47proceedings47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\357\273\277<h3>Labot rakstu</h3>\n"
+@output_buffer.concat "<div id=\"container\">\n"
+@output_buffer.concat "\n"
+ form_for(@proceeding) :id => "ff" do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "    <legend>Pamatinform\304\201cija</legend>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :title, "Nosaukums" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :authors, "Autori" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :authors ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :year ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :year ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_short_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_short_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :issue ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :issue ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :volume ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :volume ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :used_pages ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :used_pages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :keywords ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :keywords ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Saglabāt' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Skatīt', @proceeding ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Atgriezties', proceedings_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ':', expecting kEND
+ form_for(@proceeding) :id => "ff" do |f| ; @output_buffer.concat "\n"
+                        ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+ form_for(@proceeding) :id => "ff" do |f| ; @output_buffer.concat "\n"
+                                     ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end) on line #4 of app/views/proceedings/edit.html.erb:
+1: ﻿<h3>Labot rakstu</h3>
+2: <div id="container">
+3: 
+4: <% form_for(@proceeding) :id => "ff" do |f| %>
+5:   <%= f.error_messages %>
+6:   
+7:   <fieldset>
+
+    app/views/proceedings/edit.html.erb:65:in `compile!'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (156.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:23:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+ERROR: compiling _run_erb_app47views47proceedings47edit46html46erb RAISED compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ',', expecting kEND
+ form_for(@proceeding), :id => "ff" do |f| ; @output_...
+                       ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+...r(@proceeding), :id => "ff" do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47proceedings47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\357\273\277<h3>Labot rakstu</h3>\n"
+@output_buffer.concat "<div id=\"container\">\n"
+@output_buffer.concat "\n"
+ form_for(@proceeding), :id => "ff" do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "    <legend>Pamatinform\304\201cija</legend>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :title, "Nosaukums" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :authors, "Autori" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :authors ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :year ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :year ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_short_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_short_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :issue ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :issue ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :volume ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :volume ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :used_pages ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :used_pages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :keywords ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :keywords ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Saglabāt' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Skatīt', @proceeding ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Atgriezties', proceedings_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ',', expecting kEND
+ form_for(@proceeding), :id => "ff" do |f| ; @output_...
+                       ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+...r(@proceeding), :id => "ff" do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end) on line #4 of app/views/proceedings/edit.html.erb:
+1: ﻿<h3>Labot rakstu</h3>
+2: <div id="container">
+3: 
+4: <% form_for(@proceeding), :id => "ff" do |f| %>
+5:   <%= f.error_messages %>
+6:   
+7:   <fieldset>
+
+    app/views/proceedings/edit.html.erb:65:in `compile!'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (156.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:24:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+ERROR: compiling _run_erb_app47views47proceedings47edit46html46erb RAISED compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ',', expecting kEND
+ form_for(@proceeding), :html => {:id => "fm-form"} d...
+                       ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+...:html => {:id => "fm-form"} do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47proceedings47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\357\273\277<h3>Labot rakstu</h3>\n"
+@output_buffer.concat "<div id=\"container\">\n"
+@output_buffer.concat "\n"
+ form_for(@proceeding), :html => {:id => "fm-form"} do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "    <legend>Pamatinform\304\201cija</legend>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :title, "Nosaukums" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :authors, "Autori" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :authors ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :year ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :year ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_short_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_short_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :issue ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :issue ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :volume ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :volume ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :used_pages ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :used_pages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :keywords ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :keywords ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Saglabāt' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Skatīt', @proceeding ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Atgriezties', proceedings_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected ',', expecting kEND
+ form_for(@proceeding), :html => {:id => "fm-form"} d...
+                       ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO, expecting kEND
+...:html => {:id => "fm-form"} do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end) on line #4 of app/views/proceedings/edit.html.erb:
+1: ﻿<h3>Labot rakstu</h3>
+2: <div id="container">
+3: 
+4: <% form_for(@proceeding), :html => {:id => "fm-form"} do |f| %>
+5:   <%= f.error_messages %>
+6:   
+7:   <fieldset>
+
+    app/views/proceedings/edit.html.erb:65:in `compile!'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:25:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+ERROR: compiling _run_erb_app47views47proceedings47edit46html46erb RAISED compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected $undefined
+ form_for :proceeding, @:proceeding, :html => {:id => ...
+                        ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO_BLOCK, expecting kEND
+...:html => {:id => "fm-form"} do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47proceedings47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\357\273\277<h3>Labot rakstu</h3>\n"
+@output_buffer.concat "<div id=\"container\">\n"
+@output_buffer.concat "\n"
+ form_for :proceeding, @:proceeding, :html => {:id => "fm-form"} do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "    <legend>Pamatinform\304\201cija</legend>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :title, "Nosaukums" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :authors, "Autori" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :authors ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :year ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :year ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <div class=\"fm-req\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "      "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "  <fieldset>\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :type ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :type ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :journal_short_name ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :journal_short_name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :issue ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :issue ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :volume ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :volume ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :used_pages ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :used_pages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :keywords ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :keywords ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Saglabāt' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Skatīt', @proceeding ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Atgriezties', proceedings_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected $undefined
+ form_for :proceeding, @:proceeding, :html => {:id => ...
+                        ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:4: syntax error, unexpected kDO_BLOCK, expecting kEND
+...:html => {:id => "fm-form"} do |f| ; @output_buffer.concat "...
+                              ^
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/edit.html.erb:65: syntax error, unexpected kENSURE, expecting $end) on line #4 of app/views/proceedings/edit.html.erb:
+1: ﻿<h3>Labot rakstu</h3>
+2: <div id="container">
+3: 
+4: <% form_for :proceeding, @:proceeding, :html => {:id => "fm-form"} do |f| %>
+5:   <%= f.error_messages %>
+6:   
+7:   <fieldset>
+
+    app/views/proceedings/edit.html.erb:65:in `compile!'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:25:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 344ms (View: 297, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:26:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 594ms (View: 547, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:27:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 14:28:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 94ms (View: 62, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:56:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 62ms (View: 46, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:56:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 94ms (View: 63, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:58:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:58:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:58:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 500ms (View: 343, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:59:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+
+ActionView::TemplateError (undefined method `reverse_merge' for "Saglabāt":String) on line #60 of app/views/proceedings/edit.html.erb:
+57:   <fieldset>   
+58: 
+59:   <div>
+60:     <%= f.submit 'Create', "Saglabāt" %>
+61:   </div>  
+62:   
+63: <% end %>
+
+    app/views/proceedings/edit.html.erb:60
+    app/views/proceedings/edit.html.erb:4
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 15:59:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 79ms (View: 63, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 15:59:50) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:00:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 281ms (View: 250, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:00:02) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:00:15) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:00:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 203ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:00:20) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:02:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 63ms (View: 32, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:02:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:02:16) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:07:35) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:07:45) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:07:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:07:49) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 16:07:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:07:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 79ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:07:55) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 235ms (View: 219, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 16:07:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 16:27:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:27:38) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:27:47) [GET]
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+ERROR: compiling _run_erb_app47views47proceedings47new46html46erb RAISED compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/new.html.erb:4: syntax error, unexpected '=', expecting ')'
+...fer.concat(( render :partial = "form" ).to_s); @output_buffe...
+                              ^
+Function body:           def _run_erb_app47views47proceedings47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h3>Jauns raksts</h3>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"container\">\n"
+@output_buffer.concat "  "; @output_buffer.concat(( render :partial = "form" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Atgriezties', proceedings_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/new.html.erb:10:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/controllers/proceedings_controller.rb:30:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+D:/Coding/GitPath/proceedings_ruby/proceedings/app/views/proceedings/new.html.erb:4: syntax error, unexpected '=', expecting ')'
+...fer.concat(( render :partial = "form" ).to_s); @output_buffe...
+                              ^) on line #4 of app/views/proceedings/new.html.erb:
+1: <h3>Jauns raksts</h3>
+2: 
+3: <div id="container">
+4:   <%= render :partial = "form" %>
+5: </div>
+6: 
+7: <%= link_to 'Atgriezties', proceedings_path %>
+
+    app/views/proceedings/new.html.erb:10:in `compile!'
+    app/controllers/proceedings_controller.rb:30:in `new'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:27:54) [GET]
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (62.0ms)
+Completed in 156ms (View: 141, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:06) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (47.0ms)
+Completed in 63ms (View: 47, DB: 16) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:08) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (235.0ms)
+Completed in 281ms (View: 250, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:09) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (31.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:10) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (15.0ms)
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:11) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (15.0ms)
+Completed in 46ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (15.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:17) [GET]
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (16.0ms)
+Completed in 31ms (View: 16, DB: 30) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:20) [GET]
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (15.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (16.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:23) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"2", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (16.0ms)
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:29) [GET]
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (31.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:28:46) [GET]
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (32.0ms)
+Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:29:02) [GET]
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (15.0ms)
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 16:29:13) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"22", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"22", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (16.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:29:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:29:44) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 32, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:29:47) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 16:29:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 16:29:51) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:29:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 16:30:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (16.0ms)
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 16:30:19) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk2", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 18:52:46) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk2", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 18:53:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (31.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#1 (for 127.0.0.1 at 2010-08-27 18:53:47) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"edit", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 18:54:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (31.0ms)
+Completed in 234ms (View: 188, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#update (for 127.0.0.1 at 2010-08-27 18:54:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"1", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;36;1mSQL (16.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/1
+Completed in 78ms (DB: 32) | 302 Found [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 18:54:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 62ms (View: 15, DB: 16) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 18:55:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (15.0ms)
+Completed in 62ms (View: 31, DB: 32) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#update (for 127.0.0.1 at 2010-08-27 18:55:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"1", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"22", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProceeding Update (94.0ms)[0m   [0mUPDATE `proceedings` SET `journal_name` = '22', `updated_at` = '2010-08-27 15:55:12' WHERE `id` = 1[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/1
+Completed in 188ms (DB: 126) | 302 Found [http://localhost/proceedings/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 18:55:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (16.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 63ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 18:56:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (15.0ms)
+Completed in 46ms (View: 31, DB: 15) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 19:03:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (16.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (15.0ms)
+Completed in 78ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#update (for 127.0.0.1 at 2010-08-27 19:03:39) [PUT]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"1", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"22", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"kllk", "keywords"=>""}}
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/1
+Completed in 31ms (DB: 31) | 302 Found [http://localhost/proceedings/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 19:03:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/proceedings/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 19:03:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (16.0ms)
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#update (for 127.0.0.1 at 2010-08-27 19:03:46) [PUT]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"1", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"22", "title"=>"test", "type"=>"", "used_pages"=>"", "issue"=>"", "year"=>"", "volume"=>"", "authors"=>"22", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mProceeding Update (0.0ms)[0m   [0;1mUPDATE `proceedings` SET `authors` = '22', `updated_at` = '2010-08-27 16:03:46' WHERE `id` = 1[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/1
+Completed in 172ms (DB: 125) | 302 Found [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 19:03:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (15.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 63ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 19:03:49) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 19:19:51) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 19:25:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 46ms (View: 15, DB: 16) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 19:25:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (16.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (15.0ms)
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:13:38) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 0, DB: 32) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:13:39) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:15:45) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:02) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:38) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:43) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:44) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 30) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:49) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:16:57) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:15) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:16) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 46ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:17) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 250ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:17) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:17) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (16.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:17:18) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:20:42) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:20:42) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:06) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:21) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:29) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 32, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:39) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:49) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:52) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:21:57) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:23) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:28) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 78ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:37) [GET]
+  [4;36;1mProceeding Load (16.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:42) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:44) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:48) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 0, DB: 15) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:22:58) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:26:19) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 32ms (View: 0, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:26:22) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:27:02) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:27:08) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:27:47) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 20:28:24) [GET]
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (157.0ms)
+Completed in 203ms (View: 157, DB: 0) | 200 OK [http://localhost/proceedings/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#create (for 127.0.0.1 at 2010-08-27 20:28:32) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"yyy", "type"=>"22", "used_pages"=>"", "issue"=>"", "year"=>"22", "volume"=>"", "authors"=>"22", "keywords"=>""}}
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProceeding Create (0.0ms)[0m   [0mINSERT INTO `proceedings` (`journal_short_name`, `journal_name`, `updated_at`, `title`, `type`, `used_pages`, `year`, `issue`, `authors`, `volume`, `keywords`, `created_at`) VALUES('', '', '2010-08-27 17:28:32', 'yyy', NULL, '', '22', '', '22', '', '', '2010-08-27 17:28:32')[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/2
+Completed in 63ms (DB: 47) | 302 Found [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 20:28:32) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 2) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:28:35) [GET]
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:30:53) [GET]
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#edit (for 127.0.0.1 at 2010-08-27 20:30:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/edit
+Rendered proceedings/_form (32.0ms)
+Completed in 63ms (View: 47, DB: 32) | 200 OK [http://localhost/proceedings/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:30:58) [GET]
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 20:31:00) [GET]
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (16.0ms)
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:31:01) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 20:31:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 15ms (View: 0, DB: 15) | 200 OK [http://localhost/proceedings/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:31:10) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#destroy (for 127.0.0.1 at 2010-08-27 20:31:13) [DELETE]
+  Parameters: {"authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "id"=>"1"}
+  [4;36;1mProceeding Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProceeding Destroy (0.0ms)[0m   [0mDELETE FROM `proceedings` WHERE `id` = 1[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings
+Completed in 78ms (DB: 62) | 302 Found [http://localhost/proceedings/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:31:13) [GET]
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/proceedings]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#new (for 127.0.0.1 at 2010-08-27 20:31:15) [GET]
+  [4;35;1mProceeding Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Rendering template within layouts/proceedings
+Rendering proceedings/new
+Rendered proceedings/_form (16.0ms)
+Completed in 62ms (View: 31, DB: 15) | 200 OK [http://localhost/proceedings/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#create (for 127.0.0.1 at 2010-08-27 20:31:19) [POST]
+  Parameters: {"commit"=>"Saglabāt", "authenticity_token"=>"s3u+czNgVinf+xyKLc5C43PVMZceU5buqhuj+hE0HDk=", "proceeding"=>{"journal_short_name"=>"", "journal_name"=>"", "title"=>"212", "type"=>"212", "used_pages"=>"", "issue"=>"", "year"=>"21", "volume"=>"", "authors"=>"2121", "keywords"=>""}}
+  [4;36;1mProceeding Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+WARNING: Can't mass-assign these protected attributes: type
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mProceeding Create (0.0ms)[0m   [0;1mINSERT INTO `proceedings` (`journal_short_name`, `journal_name`, `updated_at`, `title`, `type`, `used_pages`, `year`, `issue`, `authors`, `volume`, `keywords`, `created_at`) VALUES('', '', '2010-08-27 17:31:19', '212', NULL, '', '21', '', '2121', '', '', '2010-08-27 17:31:19')[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/proceedings/3
+Completed in 78ms (DB: 31) | 302 Found [http://localhost/proceedings]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#show (for 127.0.0.1 at 2010-08-27 20:31:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProceeding Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `proceedings`[0m
+  [4;35;1mProceeding Load (0.0ms)[0m   [0mSELECT * FROM `proceedings` WHERE (`proceedings`.`id` = 3) [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/show
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/proceedings/3]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProceedingsController#index (for 127.0.0.1 at 2010-08-27 20:31:21) [GET]
+  [4;36;1mProceeding Load (0.0ms)[0m   [0;1mSELECT * FROM `proceedings` [0m
+Rendering template within layouts/proceedings
+Rendering proceedings/index
+  [4;35;1mProceeding Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `proceedings`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/proceedings]

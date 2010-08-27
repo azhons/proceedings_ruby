@@ -1,0 +1,60 @@
+﻿<% form_for (@proceeding), :html => {:id => "fm-form"} do |f| %>
+  <%= f.error_messages %>
+  
+  <fieldset>
+    <legend>Pamatinformācija</legend>
+    <div class="fm-req">
+      <%= f.label :title, "Nosaukums" %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="fm-req">
+      <%= f.label :authors, "Autori" %>
+      <%= f.text_field :authors %>
+    </div>
+    <div class="fm-req">
+      <%= f.label :year, "Izdošanas gads" %>
+      <%= f.text_field :year %>
+    </div>
+    <div class="fm-req">
+      <%= f.label :type, "Tips" %>
+      <%= f.text_field :type %>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Žurnāls</legend>
+    <div class="fm-opt">
+      <%= f.label :journal_name, "Nosaukums" %>
+      <%= f.text_field :journal_name %>
+    </div>
+    <div class="fm-opt">
+      <%= f.label :journal_short_name, "Īsais nosaukums" %>
+      <%= f.text_field :journal_short_name %>
+    </div>
+    <div class="fm-opt">
+      <%= f.label :issue, "Numurs" %>
+      <%= f.text_field :issue %>
+    </div>
+    <div class="fm-opt">
+      <%= f.label :volume, "Sējums" %>
+      <%= f.text_field :volume %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Raksts</legend>
+    <div class="fm-opt">
+      <%= f.label :used_pages, "Izmantotās lpp." %>
+      <%= f.text_field :used_pages %>
+    </div>
+    <div class="fm-opt">
+      <%= f.label :keywords, "Atslēgvārdi" %>
+      <%= f.text_field :keywords %>
+    </div>
+  </fieldset>   
+
+  <div>
+    <%= f.submit 'Saglabāt' %>
+  </div>  
+  
+<% end %>
